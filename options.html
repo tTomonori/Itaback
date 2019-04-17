@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Itaback Options</title>
+	<style media="screen">
+	*{
+		user-select: none;
+		-ms-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+	}
+	body{
+		width: 240px;
+		height: 240px;
+		margin: 0;
+	}
+	#back{
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: -1;
+		background: -webkit-gradient(linear,left bottom,left top, from(rgba(255,50,0,1)),color-stop(0.3,rgba(255,90,0,0.8)),color-stop(0.4,rgba(255,140,0,0.7)), to(rgba(255,200,0,0.5)));
+	}
+	input[type="checkbox"]{
+		-webkit-appearance: none;
+	  appearance: none;
+		outline: none;
+	}
+	label{
+		margin: 20px;
+		cursor: pointer;
+	}
+	#invalid:checked + label img{
+		animation: clicked 0.5s ease 0s 1 alternate none running;
+	}
+	#invalid:not(:checked) + label img{
+		animation: clicked2 0.5s ease 0s 1 alternate none running;
+	}
+	#invalid:checked + label{
+		filter: saturate(0%);
+	}
+	#invalid:checked ~ #back{
+		filter: saturate(0%);
+	}
+
+	@keyframes clicked {
+		0% {
+			transform: scale(1,1);
+		}
+		33% {
+			transform: scale(0.4,0.4);
+		}
+		66% {
+			transform: scale(1.2,1.2);
+		}
+		88% {
+			transform: scale(0.8,0.8);
+		}
+		94% {
+			transform: scale(1.1,1.1);
+		}
+		100% {
+			transform: scale(1,1);
+		}
+		}
+		@keyframes clicked2 {
+			0% {
+				transform: scale(1.1,1.1);
+			}
+			33% {
+				transform: scale(0.4,0.4);
+			}
+			66% {
+				transform: scale(1.2,1.2);
+			}
+			88% {
+				transform: scale(0.8,0.8);
+			}
+			94% {
+				transform: scale(1.1,1.1);
+			}
+			100% {
+				transform: scale(1,1);
+			}
+			}`
+	</style>
+</head>
+<body>
+	<input id="invalid" type="checkbox">
+	<label for="invalid"><img src="img/beat.png" width="200px"></label>
+	<div id="back"></div>
+</body>
+<script type="text/javascript" src="options.js"></script>
+</html>
